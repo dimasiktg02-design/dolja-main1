@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>Dolja</title>
+  <style>
+    .language-switcher {
+        display: flex;
+        align-items: center;
+        margin-left: 25px;
+        margin-right: 25px;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .language-switcher img {
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+        filter: brightness(0) invert(1); 
+    }
+
+    .lang-item {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 1;
+        padding: 0 4px;
+        transition: opacity 0.3s;
+    }
+
+    .lang-item.active {
+        font-weight: 700; 
+        opacity: 1;
+    }
+
+    .lang-item.inactive {
+        font-weight: 400;
+        opacity: 0.8;
+    }
+
+    .lang-item.inactive:hover {
+        opacity: 1;
+    }
+
+    .lang-separator {
+        display: inline-block;
+        width: 1px;
+        height: 14px;
+        background-color: white;
+        margin: 0 4px;
+        opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+        .language-switcher {
+             margin-left: 10px;
+             margin-right: 10px;
+        }
+    }
+
+    .examples__section_wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .example__block {
+        width: 100%;
+        padding: 60px 0;
+    }
+
+    .example__block--blue {
+        background-color: #0062E6;
+        color: white;
+    }
+
+    .example__block--white {
+        background-color: #ffffff;
+        color: #333333;
+        box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.05); 
+        position: relative;
+        z-index: 1;
+    }
+
+    .example__inner {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .example__line {
+        width: 4px;
+        flex-shrink: 0;
+        margin-right: 25px;
+        border-radius: 2px;
+    }
+
+    .example__line--white {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Синяя полоса для белого фона */
+    .example__line--blue {
+        background-color: #0062E6;
+    }
+
+    .example__text_content {
+        flex: 1;
+    }
+
+    .example__title {
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+
+    .example__desc {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        text-align: justify;
+    }
+
+    .example__desc:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Адаптив для примеров */
+    @media (max-width: 768px) {
+        .example__block {
+            padding: 40px 0;
+        }
+        .example__line {
+            margin-right: 15px;
+        }
+        .example__title {
+            font-size: 20px;
+        }
+        .example__desc {
+            font-size: 14px;
+        }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header__wrapper" id="header">
+    <div class="container header__container">
+      <a class="header__logo_container" onclick="scrollToSection('header')">
+        <img loading="lazy" decoding="async" class="header__logo" src="./assets/icons/logo.png" alt="header logo">
+      </a>
+      <div class="header__contact_container">
+        <div class="header__contact_email_container">
+          <img loading="lazy" decoding="async" class="header__contact_email_img" src="./assets/icons/envelope.png" alt="envelope icon">
+          <p class="header__contact_email_text">projekce@suhssnsv.com</p>
+        </div>
+        
+        <div class="language-switcher">
+            <img src="./assets/icons/globe.png" alt="globe icon" onerror="this.style.display='none'">
+            <span class="lang-item active">UA</span>
+            <span class="lang-separator"></span>
+            <!-- ИЗМЕНЕНО: Ссылка теперь ведет на index.html и текст заменен на CZ -->
+            <a href="index.html" class="lang-item inactive">CZ</a>
+        </div>
+        <button class="header__contact_btn" onclick="scrollToSection('footer')">
+          <img loading="lazy" decoding="async" src="./assets/icons/envelope.png" alt="envelope icon">
+          <p class="header__contact_btn_text">Напишіть нам</p>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main class="main__wrapper">
+    <section class="hero__section">
+      <div class="hero__image_container">
+        <img loading="lazy" decoding="async" class="hero__img" src="./assets/imgs/hero_img.png" alt="hero image">
+      </div>
+      <div class="container hero__section_info_wrapper">
+        <div class="hero__section_info">
+          <div class="hero__section_info_text">
+            <h1 class="hero__section_title">КОМПЛЕКСНІ РІШЕННЯ В ГАЛУЗІ ЕЛЕКТРОЕНЕРГЕТИКИ</h1>
+            <p class="hero__section_desc">Інноваційне енергетичне рішення з запатентованою технологією, стійкою до пошкоджень
+            </p>
+          </div>
+          <button class="hero__section_btn" onclick="scrollToSection('resilience')">Детальніше</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="design__section" id="design">
+      <div class="container design__section_content">
+        <div class="design__section_info">
+          <div class="design__info_options_first">
+            <h3 class="design__info_options_title">Проектування зовнішніх та внутрішніх підстанцій</h3>
+            <div class="design__info_options_container">
+              <p class="design__info_option_text">Реконструкція зовнішніх та внутрішніх підстанцій</p>
+              <p class="design__info_option_text">Обладнання резервних частин підстанцій 110 кВ та 220 кВ</p>
+              <p class="design__info_option_text">Встановлення нових розподільчих пристроїв середньої напруги</p>
+            </div>
+          </div>
+          <div class="design__info_options_second">
+            <h3 class="design__info_options_title">Проектування трансформаторних підстанцій</h3>
+            <div class="design__info_options_container">
+              <p class="design__info_option_text_special">Трансформаторні підстанції ВН/СН включаючи високовольтні підстанції та високовольтні мережі
+              </p>
+              <p class="design__info_option_text">Трансформаторні підстанції СН/НН</p>
+            </div>
+          </div>
+        </div>
+        <div class="design__img_container">
+          <img loading="lazy" decoding="async" class="design__img" src="./assets/imgs/img4.png" alt="design image">
+        </div>
+      </div>
+      <div class="container">
+        <div class="power__section_content">
+          <div class="power__section_img_container">
+            <img loading="lazy" decoding="async" class="power__section_img" src="./assets/imgs/img5.png" alt="power image">
+          </div>
+          <div class="power__section_text_info">
+            <h3 class="power__section_text_info_title">Дослідження оптимізації розподільчих мереж та впливу підключених пристроїв
+            </h3>
+            <div class="power__section_info_options">
+              <p class="design__info_option_text_special">Оптимізація налаштувань захисту та селективності на всіх рівнях напруги локальних розподільчих систем (включаючи рекомендації щодо експлуатації та розширення) </p>
+              <p class="design__info_option_text">Умови короткого замикання в мережах </p>
+              <p class="design__info_option_text">Розрахунок земних ємнісних струмів в мережах СН, рішення для захисту від замикання на землю, рішення для компенсації земних струмів.</p>
+              <p class="design__info_option_text">Конструкція компенсації коефіцієнта потужності, включаючи декомпенсацію, спричинену ємністю високовольтних кабелів.</p>
+              <p class="design__info_option_text">Розрахунки впливу пусків електродвигунів на розподільчі мережі</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+    </section>
+
+    <section class="resilience__section" id="resilience">
+      <div class="container resilience__section_content">
+        <div class="resilience__section_info">
+          <h3 class="resilience__section_info_title">Енергетична установка з підвищеною стійкістю до зовнішніх уражень в зоні бойових дій</h3>
+          <p class="resilience__section_info_desc">Ми є користувачами патенту «Електростанція з підвищеною стійкістю до зовнішніх уражень в зоні бойових дій».</p>
+          <p class="resilience__section_info_desc">Це проект акумуляторного накопичувача потужністю понад 20 МВт, доповненого фотоелектричною електростанцією або іншими джерелами. Весь об'єкт розділений на безліч базових окремо захищених частин - площей (порядку сотень кВт), які розташовані на достатній відстані один від одного завдяки площі фотоелектричної станції.</p>
+          <p class="resilience__section_info_desc">У поєднанні з унікальною топологією розподільчої мережі та системою захисту гарантується, що у випадку бомбардування будуть виведені з експлуатації лише ті частини, які негайно механічно знищені, та непошкоджені частини обладнання будуть продовжати виконувати свою функцію. Встановлення цих пристроїв у зонах бойових дій, може суттєво сприяти стабілізації розподільчих мереж, зруйнованих під час терористичних атак на інфраструктуру. Водночас, можливо використовувати використану мережеву топологію в поєднанні із системою захисту в розподільчих мережах загалом (не лише для реалізації цього проєкту).</p>
+        </div>
+        <div class="resilience__section_img_container">
+          <img loading="lazy" decoding="async" src="./assets/imgs/certificate.png" alt="certificate image">
+        </div>
+      </div>
+      
+      <div class="examples__section_wrapper" id="assembly">
+        
+        <div class="example__block example__block--blue">
+          <div class="container">
+            <div class="example__inner">
+              <div class="example__line example__line--white"></div>
+              <div class="example__text_content">
+                <h3 class="example__title">Приклади використання технології</h3>
+                <p class="example__desc">
+                  Існує багато способів використання цього пристрою, наприклад:<br>
+                  Фотоелектрична електростанція з потужністю 80 МВт на загальній площі 1,35 км2 розділена на частини площею 6825 м2, які відповідають вихідній потужності 400 кВА. У кожній частині встановлена станція акумуляторного зберігання енергії 400 кВт/1600 кВт год та мотор-генератор (наприклад, когенераційна установка, дизель-генератор тощо) потужністю 400 кВА. Потужність усієї електростанції виводиться на чотири трансформатори 40 МВА. На другому рівні середньої напруги 35 кВ встановлено двадцять «Вищіх підстанцій» потужністю 8 МВА. У лініях першого рівня середньої напруги 10 кВ (40 ліній) загалом встановлено 200 «Базових підстанцій» потужністю 400 кВА.
+                </p>
+                <p class="example__desc">
+                  Завдяки обраним параметрам мережі можливе використання так званих «секундарних розподільних установок (розподільних пристроїв до 20 кА-1с)» та економічні витрати на впровадження мережі виведення електроенергії (включаючи систему захисту згідно з цим проектом) складають лише до на 20% вище порівняно зі стандартним рішенням. Доцільно розміщувати такі джерела в стратегічних місцях розподільної мережі, щоб вони використовувалися як найкраще для забезпечення стабільності (особливо енергетичного балансу) і запасного виробництва електроенергії в мережах, порушених бойовими чи терористичними діями.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example__block example__block--white">
+          <div class="container">
+            <div class="example__inner">
+              <div class="example__line example__line--blue"></div>
+              <div class="example__text_content">
+                <p class="example__desc">
+                  Фотоелектрична електростанція відповідно до попереднього 1-го прикладу (включаючи станцій акумуляторного зберігання енергії або мотор-генераторів) де трансформатори ВН/СН розташовані не по периметру самої фотоелектричної електростанції, але ці чотири лінії на рівні 35 кВ (з достатньою просторовою відстанню) протягуються до міста де приблизно 50 000 жителів. Ці лінії підключені до вхідних підстанцій ВН/СН (також досить далеко одна від одної), при цьому можуть використовуватися існуючі підстанції або збудуються нові. Існуючі мережі ВН (у цьому місті) редаговані на подібну топологію, як у фотоелектричній електростанції і захист реконструйований таким же чином. Крім усунення відключень електроенергії через віддалені атаки на розподільну мережу, в крайньому випадку можна використовувати острівну роботу.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </section>
+  </main>
+  <footer class="footer__wrapper">
+    <div class="container footer__container">
+      <h3 class="footer__title">DOLJA ELEKTRO s.r.o.</h3>
+      <div class="footer__info_container">
+        <p class="footer__info_text">28. října 810/246, 709 00</p>
+        <p class="footer__info_separator"></p>
+        <p class="footer__info_text">709 00 Ostrava - Mariánské Hory</p>
+        <p class="footer__info_separator"></p>
+        <p class="footer__info_text">IČ: <span>233</span> <span>15</span> <span>547</span></p>
+        <p class="footer__info_separator"></p>
+        <p class="footer__info_text">projekce@suhssnsv.com</p>
+      </div>
+      <div class="footer__separator"></div>
+      <a id="footer" class="footer__logo_container" onclick="scrollToSection('header')">
+        <img loading="lazy" decoding="async" src="./assets/icons/logo_footer.png" alt="">
+      </a>
+    </div>
+  </footer>
+</body>
+
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+</html>
