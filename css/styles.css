@@ -185,7 +185,7 @@
 .installation__info_option_text,
 .design__info_option_text,
 .design__info_option_text_special {
-  font-size: 16px;
+  font-size: 20px;
   color: var(--clr-black);
   position: relative;
   padding-left: 1rem;
